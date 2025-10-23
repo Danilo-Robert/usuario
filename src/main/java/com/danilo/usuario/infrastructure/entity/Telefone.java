@@ -1,10 +1,7 @@
 package com.danilo.usuario.infrastructure.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 //Anotações de Getters, Setters e Constructor usando o lombok
 @Getter
@@ -15,7 +12,7 @@ import lombok.Setter;
 @Entity
 //Table para indicar o nome da nossa tabela (aconselhado sempre indicar o nome da tabela)
 @Table(name = "telefone")
-
+@Builder
 public class Telefone {
 
     @Id
