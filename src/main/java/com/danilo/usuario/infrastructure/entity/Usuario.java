@@ -1,10 +1,7 @@
 package com.danilo.usuario.infrastructure.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -21,6 +18,7 @@ import java.util.List;
 //Table para indicar o nome da nossa tabela (aconselhado sempre indicar o nome da tabela)
 @Table(name = "usuario")
 //Estamos implementando a classe UserDetails que é do Spring Security que irá gerenciar os acessos.
+@Builder
 public class Usuario implements UserDetails {
 
     //Usando o @Id para criar o nosso identificar único.
