@@ -4,6 +4,7 @@ import com.danilo.usuario.business.UsuarioService;
 import com.danilo.usuario.business.dto.EnderecoDTO;
 import com.danilo.usuario.business.dto.TelefoneDTO;
 import com.danilo.usuario.business.dto.UsuarioDTO;
+import com.danilo.usuario.infrastructure.entity.Telefone;
 import com.danilo.usuario.infrastructure.entity.Usuario;
 import com.danilo.usuario.infrastructure.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
@@ -65,5 +66,17 @@ public class UsuarioController {
     public ResponseEntity<TelefoneDTO> atualizaTelefone(@RequestBody TelefoneDTO dto,
                                                         @RequestParam("id") Long id){
         return ResponseEntity.ok(usuarioService.atualizaTelefone(id, dto));
+    }
+
+    @PostMapping("/endereco")
+    public ResponseEntity<EnderecoDTO> cadastraEndereco(@RequestBody EnderecoDTO dto,
+                                                        @RequestHeader("Authorization") String token){
+        return ResponseEntity.ok(usuarioService.cadastraEndereco(token, dto));
+    }
+
+    @PostMapping("/telefone")
+    public ResponseEntity<TelefoneDTO> cadastraTelefone(@RequestBody TelefoneDTO dto,
+                                                        @RequestHeader("Authorization") String token){
+        return ResponseEntity.ok(usuarioService.cadastraTelefone(token, dto));
     }
 }
